@@ -255,13 +255,32 @@ public class Workshop
         return new String(letras);
     }
 
+    private static boolean esLetraODigito(char c)
+    {
+        return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9');
+    }
+
     public static boolean esPalindromo(String cadena)
     {
         if (cadena == null) return false;
-        int i = 0, j = cadena.length() - 1;
+
+        // Se filtran solo letras y dígitos para ignorar espacios y signos de puntuación
+        char[] filtrada = new char[cadena.length()];
+        int len = 0;
+        for (int i = 0; i < cadena.length(); i++)
+        {
+            char c = cadena.charAt(i);
+            if (esLetraODigito(c))
+            {
+                filtrada[len] = aMinuscula(c);
+                len++;
+            }
+        }
+
+        int i = 0, j = len - 1;
         while (i < j)
         {
-            if (aMinuscula(cadena.charAt(i)) != aMinuscula(cadena.charAt(j))) return false;
+            if (filtrada[i] != filtrada[j]) return false;
             i++;
             j--;
         }
