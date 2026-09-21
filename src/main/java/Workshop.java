@@ -542,19 +542,26 @@ public class Workshop
 
     public static String zoodiac(int day, int month)
     {
+        int[] diasPorMes = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+        if (month < 1 || month > 12 || day < 1 || day > diasPorMes[month - 1])
+        {
+            return "Invalid Date";
+        }
+
         String signo = "";
-        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) signo = "Acuario";
-        else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) signo = "Piscis";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) signo = "Aquarius";
+        else if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) signo = "Pisces";
         else if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) signo = "Aries";
-        else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) signo = "Tauro";
-        else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) signo = "Géminis";
-        else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) signo = "Cáncer";
+        else if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) signo = "Taurus";
+        else if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) signo = "Gemini";
+        else if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) signo = "Cancer";
         else if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) signo = "Leo";
         else if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) signo = "Virgo";
         else if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) signo = "Libra";
-        else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) signo = "Escorpio";
-        else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) signo = "Sagitario";
-        else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) signo = "Capricornio";
+        else if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) signo = "Scorpio";
+        else if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) signo = "Sagittarius";
+        else if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) signo = "Capricorn";
         return signo;
     }
 }
