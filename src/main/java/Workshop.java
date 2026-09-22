@@ -520,17 +520,31 @@ public class Workshop
         return "Perdiste";
     }
 
+    // Códigos de una letra usados por pptls2: R=Rock/Piedra, V=Vulcan/Spock,
+    // P=Paper/Papel, L=Lizard/Lagarto, S=Scissors/Tijera
+    private static int indiceLetra(String letra)
+    {
+        if (letra == null || letra.length() != 1) return -1;
+        char c = aMayuscula(letra.charAt(0));
+        if (c == 'R') return 0;
+        if (c == 'V') return 1;
+        if (c == 'P') return 2;
+        if (c == 'L') return 3;
+        if (c == 'S') return 4;
+        return -1;
+    }
+
     public static String pptls2(String[] game)
     {
         if (game == null || game.length != 2) return "Entrada inválida";
 
-        int p1 = indiceOpcion(game[0]);
-        int p2 = indiceOpcion(game[1]);
+        int p1 = indiceLetra(game[0]);
+        int p2 = indiceLetra(game[1]);
         if (p1 == -1 || p2 == -1) return "Entrada inválida";
 
         if (p1 == p2) return "Empate";
-        if (vence(p1, p2)) return "Jugador 1 gana";
-        return "Jugador 2 gana";
+        if (vence(p1, p2)) return "Player 1";
+        return "Player 2";
     }
 
     // ---------- Geometría y zodiaco ----------
