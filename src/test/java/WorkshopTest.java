@@ -255,7 +255,7 @@ public class WorkshopTest {
         // Test 2: Contar palabras en cadena vacía
         assertEquals(0, tester.contarPalabras(""));
         // Test 3: Contar palabras con múltiples espacios
-        assertEquals(4, tester.contarPalabras("Hola   mundo  hoy"));
+        assertEquals(4, tester.contarPalabras("Hola   mundo  hoy amigo"));
     }
 
     // Test para el método convertirAMayusculas
